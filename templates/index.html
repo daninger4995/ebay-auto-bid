@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eBay Tracker</title>
+</head>
+<body>
+    <form method="POST">
+        <label for="item_id">Item ID:</label><br>
+        <input type="text" id="item_id" name="item_id" required><br>
+        <label for="max_price">Max Price:</label><br>
+        <input type="number" id="max_price" name="max_price" min="1" required><br>
+        <label for="ebay_username">eBay Username:</label><br>
+        <input type="text" id="ebay_username" name="ebay_username" required><br>
+        <label for="ebay_password">eBay Password:</label><br>
+        <input type="password" id="ebay_password" name="ebay_password" required><br>
+        <label for="wait_minutes">Wait Time (minutes):</label><br>
+        <input type="number" id="wait_minutes" name="wait_minutes" min="1" required><br>
+        <input type="submit" value="Track & Bid">
+    </form>
+    
+    {% if item %}
+        <h2>Item:</h2>
+        <h3>{{ item.Title }}</h3>
+        <p>Current price: {{ item.CurrentPrice.Value }}</p>
+        <p><a href="{{ item.ViewItemURLForNaturalSearch }}" target="_blank">Link</a></p>
+    {% endif %}
+</body>
+</html>
